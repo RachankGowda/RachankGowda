@@ -42,7 +42,7 @@ Rachan/
 ├── README.md
 ├── .env
 ├── .gitignore
-└── .venv/
+└── .venv/.
 ```
 
 ## How It Works
