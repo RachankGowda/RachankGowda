@@ -1,6 +1,6 @@
 # PythonAIChatbot
 
-A command-line AI chatbot built with Python, LangChain, LangGraph, and Groq. The chatbot can answer questions, perform addition, and greet users through custom tools.
+A Streamlit AI chatbot built with Python, LangChain, LangGraph, and Groq. The chatbot can answer questions, perform addition, and greet users through custom tools.
 
 ## Features
 
@@ -8,7 +8,8 @@ A command-line AI chatbot built with Python, LangChain, LangGraph, and Groq. The
 - LangGraph ReAct agent
 - Calculator tool for adding two numbers
 - Greeting tool
-- Streaming responses in the terminal
+- Streamlit chat interface with message history
+- Sidebar controls for clearing the conversation
 - `.env` configuration for API credentials
 
 ## Architecture
@@ -17,7 +18,7 @@ A command-line AI chatbot built with Python, LangChain, LangGraph, and Groq. The
 User Input
     |
     v
-Command-Line Interface
+Streamlit Web Interface
     |
     v
 main.py
@@ -51,9 +52,9 @@ Rachan/
 2. Initializes the Groq model using `ChatGroq`.
 3. Registers the `calculator` and `say_hello` tools.
 4. Creates a LangGraph ReAct agent.
-5. Accepts user messages through the terminal.
-6. Streams the assistant response.
-7. Exits when the user enters `quit`.
+5. Accepts user messages through the Streamlit chat window.
+6. Sends the request to the LangGraph agent.
+7. Displays the response in the conversation view.
 
 ## Requirements
 
@@ -93,7 +94,7 @@ Then activate the environment again.
 
 ```powershell
 python -m pip install --upgrade pip
-pip install langchain-core langchain-groq langgraph python-dotenv
+pip install -r requirements.txt
 ```
 
 ### 4. Configure environment variables
@@ -110,8 +111,10 @@ Replace `your_groq_api_key` with your actual Groq API key.
 ## Run the Application
 
 ```powershell
-python main.py
+streamlit run main.py
 ```
+
+Streamlit opens the app in your browser. Add `GROQ_API_KEY` to `.env` before sending a message.
 
 Example prompts:
 
@@ -123,11 +126,7 @@ What is 25 plus 15?
 Say hello to Rachan.
 ```
 
-Type the following command to exit:
-
-```text
-quit
-```
+Stop the Streamlit process with `Ctrl+C` to exit.
 
 ## Save Dependencies
 
